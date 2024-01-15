@@ -1,0 +1,425 @@
+/* lato-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/lato-v24-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* lato-italic - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Lato';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../assets/fonts/lato-v24-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* lato-700 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../assets/fonts/lato-v24-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* lato-700italic - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Lato';
+    font-style: italic;
+    font-weight: 700;
+    src: url('../assets/fonts/lato-v24-latin-700italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* lato-900 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 900;
+    src: url('../assets/fonts/lato-v24-latin-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* lato-900italic - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Lato';
+    font-style: italic;
+    font-weight: 900;
+    src: url('../assets/fonts/') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html{
+    scroll-behavior: smooth;
+  }
+
+  :root{
+    --clr1:#ec1839;
+    --clr2:#2196f3;
+    --clr3:#fa5b0f;
+    --clr4:#ffb400;
+    --cl45:#72b626;
+  }
+
+  body{
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    background-color: var(--bgclrd);
+    color: var(--textclr);
+    overflow-x: hidden;
+  }
+
+
+  ul{
+    list-style: none;
+  }
+
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+
+  button, input{
+    outline: none;
+    background-color: none;
+    border: none;
+
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  /*  */
+
+  body[data-theme="light"]{
+    --bgclrd: #f2f2fc;
+    --bgclrl:#fdf9ff;
+    --hdgclr:#302e4d;
+    --textclr:#504e70;
+    --borclrd:#d4d4e3;
+    --borclrl:#e8dfec;
+  }
+
+  body[data-theme="dark"]{
+    --bgclrd: #151515;
+    --bgclrl:#222222;
+    --hdgclr:#ffffff;
+    --textclr:#e9e9e9;
+    --borclrd:#393939;
+    --borclrl:#393939;
+  }
+
+  body[data-theme="light"] .revclr{
+    color:#e9e9e9;
+  }
+
+  .customclr{
+    color: var(--clr1);
+  }
+
+  .head1{
+    color: var(--hdgclr);
+    font-size: 3rem;
+    font-weight: 900;
+  }
+  
+  .head2{
+    color: var(--hdgclr);
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+ 
+  .head3{
+    color: var(--hdgclr);
+    font-weight: 700;
+  }
+
+  .d-f{
+    display: flex;
+    gap: 1rem;
+  }
+
+  .f-d-c{
+    flex-direction: column;
+  }
+
+  .j-sb{
+    justify-content: space-between;
+  }
+
+  .a-c{
+    align-items: center;
+  }
+
+  .t-a-c{
+    text-align: center;
+  }
+
+  .j-c{
+    justify-content: center;
+  }
+
+  /*  */
+
+
+  header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    z-index: 2;
+    background-color: var(--bgclrl);
+    transition: all 0.3s;
+  }
+
+  #openNav, #closeNav{
+    display: none;
+    position: fixed;
+    top: 3rem;
+
+    border: 1px solid var(--borclrl);
+    cursor: pointer;
+    padding: 0.5rem;
+    background-color: var(--bgclrl);
+  }
+
+  main{
+    position: absolute;
+    top: 0;
+    left: 300px;
+    width: calc(100% - 300px);
+    min-height: 100vh;
+  }
+
+  .headerCont{
+    width: 100%;
+    height: 100%;
+    padding: 3rem 1.5rem;
+    background-color: var(--bgclrl);
+    border-right: 1px solid var(--borclrd);
+  }
+
+
+  .headerCont .logo{
+    position: relative;
+    /* border: 1px solid black; */
+  }
+
+  .headerCont .logo::before{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: -10px;
+    color: var(--clr1);
+    width: 1rem;
+    height: 1rem;
+    border-left: 0.25rem solid var(--clr1);
+    border-top: 0.25rem solid var(--clr1);
+  }
+
+  .headerCont .logo::after{
+    position: absolute;
+    content: '';
+    bottom: 0;
+    right: -10px;
+    color: var(--clr1);
+    width: 1rem;
+    height: 1rem;
+    border-right: 0.25rem solid var(--clr1);
+    border-bottom: 0.25rem solid var(--clr1);
+  }
+  
+  .headerCont nav{
+    align-self: flex-start;
+    width: 100%;
+  }
+
+  .headerCont nav ul > li > a{
+    display: block;
+    cursor: pointer;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--borclrd);
+    transition: all 0.2s;
+  }
+
+  .headerCont nav ul > li > a span{
+    margin-left: 0.5rem;
+  }
+
+  .headerCont nav ul > li > a:hover{
+    color: var(--clr1);
+    padding-left: 0.5rem;
+  }
+
+  .headerCont nav ul > li > a.active{
+    color: var(--clr1);
+  }
+
+
+  /*  */
+
+
+  aside{
+    position: fixed;
+    right: 0;
+    top: 3rem;
+    z-index: 1;
+    background-color: var(--bgclrl);
+
+    transition: all 0.2s;
+  }
+
+
+  .setting .icon{
+    position: absolute;
+    left: -2rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid var(--borclrl);
+    cursor: pointer;
+    padding: 1rem;
+    background-color: var(--bgclrl);
+  }
+
+  .setting .icon i{
+    animation: settrotate 2s linear 0s infinite;
+  }
+
+  @keyframes settrotate {
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+  }
+
+  .setting .colors{
+    /* border: 1px solid red; */
+    padding: 0.5rem;
+  }
+
+  .setting .colors > ul > li:not(:last-child){
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--borclrd);
+  }
+
+  .setting .textclr button{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    margin-right: 0.3rem;
+  }
+
+  .setting .theme input{
+    display: none;
+  }
+
+  .setting .theme label{
+    display: block;
+    position: relative;
+    height: 1.5rem;
+    width: 3.5rem;
+    border-radius: 20px;
+    background-color: var(--clr1);
+    cursor: pointer;
+  }
+
+
+  .setting .theme label .slider{
+    position: absolute;
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 50%;
+    background-color: #fff;
+
+    top: 50%;
+    transform: translateY(-50%);
+    left: 3px;
+
+    transition: all 0.2s;
+  }
+
+  .setting .theme label::after{
+    position: absolute;
+
+    content: '\f185';
+    font-weight: 900;
+    font-family: 'font awesome 5 free';
+
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 50%;
+
+    top: 50%;
+    transform: translateY(-50%);
+    left: calc(100% + 1rem);
+
+    transition: all 0.2s;
+  }
+
+  body[data-theme="dark"] .setting .theme label .slider{
+    left: calc(100% - 1.2rem - 3px);
+  }
+
+  body[data-theme="dark"] .setting .theme label::after{
+    content: '\f186';
+  }
+
+
+
+ 
+
+  /*  */
+  section{
+    width: 100%;
+    min-height: 100vh;
+    padding: 3rem 1.5rem;
+    opacity: 0;
+    animation: fade 0.3s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fade{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+  }
+
+  section.home{
+    gap: 2rem;
+  }
+
+  section.home .imgCont{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 10px solid var(--bgclrl);
+    box-shadow: 0px 0px 25px var(--borclrl);
+  }
+
+  section.home .imgCont img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+section.home .me{
+    letter-spacing: 1px;
+}
+
+section.home .socials > ul > li > a{
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: var(--clr1);
+    padding: 1.2rem;
+}
+
+

@@ -1,0 +1,32 @@
+@media only screen and (max-width:768px) {
+    
+    header{
+        width: 100%;
+        left: calc(-100%);
+      }
+
+      #openNav, #closeNav{
+        display: block;
+      }
+
+      main{
+        left: 0;
+        width: calc(100%);
+      }
+}
+
+
+@media only screen and (max-width:360px) {
+    
+    .head1{
+        color: var(--hdgclr);
+        font-size: 2rem;
+        font-weight: 900;
+      }
+      
+      .head2{
+        color: var(--hdgclr);
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+}
