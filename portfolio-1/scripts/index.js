@@ -51,7 +51,7 @@ class Ui{
 
 
         // display sections
-        dispSection('home');
+        dispSection('about');
 
         document.querySelectorAll('nav a').forEach(element => {
             element.addEventListener('click', ()=>{
@@ -86,7 +86,7 @@ class Ui{
                 if( document.querySelector(`section.${section}`).classList.contains('d-f') ){
                     document.querySelector(`section.${section}`).style.setProperty('display', 'flex');
                 }else{
-                    document.querySelector(`section.${section}`).style.setProperty('display', 'none');
+                    document.querySelector(`section.${section}`).style.setProperty('display', 'block');
                 }
             }
         }
@@ -113,6 +113,22 @@ class Ui{
         document.getElementById('closeNav').addEventListener('click', ()=>{
             document.querySelector('header').style.setProperty('left', '-100%')
         })
+
+        //dynamic adding the gap property
+        Array.from( document.querySelectorAll('*') ).forEach( (element)=>{
+            if(element.classList.contains('d-f')){
+                if(element.className.indexOf('g-') > -1){
+                    let gap;
+                    element.className.indexOf(" ", element.className.indexOf('g-')) > -1 ? gap = element.className.substring(element.className.indexOf("g-"), element.className.indexOf(" ", element.className.indexOf("g-"))) : gap = element.className.substring(element.className.indexOf("g-"));
+                    gap = gap.substring(gap.indexOf('-') + 1)
+
+                    element.style.setProperty('gap', `${gap}rem`);
+
+                }
+                
+            }
+        } )
+
     }
 
 
