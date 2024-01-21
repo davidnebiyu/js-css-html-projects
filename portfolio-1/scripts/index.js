@@ -3,6 +3,11 @@
 const themeInput = document.getElementsByName('theme')[0];
 const settings = document.querySelector('.setting')
 const setticon = settings.querySelector('.icon') 
+const eachCatgory = document.querySelector('.eachCatagory');
+const modal = document.querySelector('#modal');
+const modalCont = modal.querySelector('#modalCont');
+let imgCont;
+
 
 class Ui{
 
@@ -51,7 +56,7 @@ class Ui{
 
 
         // display sections
-        dispSection('about');
+        dispSection('portfolio');
 
         document.querySelectorAll('nav a').forEach(element => {
             element.addEventListener('click', ()=>{
@@ -129,9 +134,138 @@ class Ui{
             }
         } )
 
+
+        // myWorks modal and navigation
+        let myworkarr = {
+            webdesign:['item1', 'item2', 'item4'],
+            websites:['item5', 'item6'],
+            photo:['item3', 'item7']
+        }
+            // display the images on each catagory
+        let catagoryLinks = document.querySelectorAll('.myworks .catagory > ul > li');
+        catagoryLinks.forEach((link)=>{
+            link.addEventListener('click', function(){
+                catagoryLinks.forEach((link)=>{link.classList.remove('active')})
+                link.classList.add('active')
+
+                let catagory = this.getAttribute('data-catg');
+                workDisp(catagory)
+            })
+        })
+
+        // get catagory of work images
+        function getCatagory(value){
+            let index = undefined;
+
+            for (let catag in myworkarr) {
+    
+                for(let i=0; i < myworkarr[catag].length; i++){
+                    if(value === myworkarr[catag][i]){
+                        index = catag;
+                        break;
+                    }
+                }
+            }
+
+            switch(index){
+                case 'websites': index =  'Web Sites';break;
+                case 'webdesign': index =  'Web Design';break;
+                case 'photo': index =  'Photography';break;
+            }
+
+            return index;
+        }
+
+        workDisp('all')
+        function workDisp(catagory){
+
+            eachCatgory.innerHTML = '';   
+
+            if( catagory == 'all' ){
+
+                for( let catag in myworkarr ){
+                    myworkarr[catag].forEach((item)=>{
+
+                        eachCatgory.innerHTML += `                        <div class="imgCont">
+                        <div class="imgoverlay"> </div>
+                        <img src="images/${item}.png" alt="">
+                        <div class="imgdesc d-f j-c a-c head3"> <p> ${getCatagory(item)} </p> </div>
+                        </div>`
+    
+                    })
+                }
+
+            }else{
+                myworkarr[catagory].forEach((item)=>{
+
+                    eachCatgory.innerHTML += `                        <div class="imgCont">
+                    <div class="imgoverlay"> </div>
+                    <img src="images/${item}.png" alt="">
+                    <div class="imgdesc d-f j-c a-c head3"> <p> ${getCatagory(item)} </p> </div>
+                    </div>`
+
+                })
+            }
+
+            imgCont = document.querySelectorAll('.myworks .imgCont');            
+           
+            let workImageIndex;
+            // work images click
+            imgCont.forEach( (cont, index)=>{
+                cont.addEventListener('click', function(){
+                    modal.style.setProperty('display', 'block');
+                    modal.style.setProperty('transform', 'scale(1)');
+            
+                    modalCont.innerHTML += `<div id="prevModal"><i class='fas fa-angle-left'></i></div>`
+                    modalCont.innerHTML += `<div id="nextModal"><i class='fas fa-angle-right'></i></div>`
+    
+                    let img = document.createElement('img')
+                    img.src = this.querySelector('img').src
+                    modalCont.appendChild(img)
+                    
+                    workImageIndex = index;
+
+                })
+            } )
+
+            // navigate work images
+            modal.addEventListener('click', (e)=>{
+
+                if( e.target ==  modal.querySelector('#prevModal i') || e.target ==  modal.querySelector('#prevModal') ){
+                    workImageIndex-=1;
+                    navImg(workImageIndex)
+                } else if( e.target ==  modal.querySelector('#nextModal i') || e.target ==  modal.querySelector('#nextModal') ){
+                    workImageIndex+=1;
+                    navImg(workImageIndex)
+                }
+
+            })
+
+            function navImg(index){
+                if( index < 0 ){
+                    workImageIndex = 0
+                }else if( index > imgCont.length - 1 ){
+                    workImageIndex = imgCont.length - 1;
+                }
+
+                modalCont.querySelector('img').src = imgCont[index].querySelector('img').src;
+            }
+
+        }
+        
+        
+
+        // close the modmal
+        document.getElementById('closeModal').addEventListener('click', ()=>{
+            modal.style.setProperty('transform', 'scale(0)');
+            modal.style.setProperty('display', 'none');
+            modalCont.innerHTML = '';
+        })
+
     }
 
 
 }
 
 Ui.initialFuns()
+

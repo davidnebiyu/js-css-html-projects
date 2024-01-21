@@ -94,6 +94,9 @@
     font-family: 'Lato';
     font-style: normal;
     font-weight: 400;
+
+    color: var(--textclr);
+
   }
 
   /*  */
@@ -174,7 +177,71 @@
   }
 
   /*  */
+  #modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: #00000099;
+    transform: scale(0);
+    display: none;
+    animation: scalee 0.3s ease-in;
+  }
 
+  #closeModal{
+    position: absolute;
+    left: calc(100% - 2rem);
+    top: 5%;
+    border: 1px solid var(--borclrl);
+    cursor: pointer;
+    padding: 0.5rem;
+    background-color: var(--bgclrl);
+    z-index: 11;
+    font-size: 1rem;
+  }
+
+  #prevModal{
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid var(--borclrl);
+    cursor: pointer;
+    padding: 0.5rem;
+    background-color: var(--bgclrl);
+    z-index: 11;
+    font-size: 1rem;
+  }
+
+
+  #nextModal{
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid var(--borclrl);
+    cursor: pointer;
+    padding: 0.5rem;
+    background-color: var(--bgclrl);
+    z-index: 11;
+    font-size: 1rem;
+  }
+
+  #modalCont{
+    width: calc(100%);
+    height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #modalCont img{
+    max-width: 100%;
+    max-height: 100%;
+  }
 
   header{
     position: fixed;
@@ -542,4 +609,72 @@ section.home .socials > ul > li > a{
   margin-bottom: 2rem;
 }
 
+/*  */
+
+
+.myworks ul > li{
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.myworks ul > li.active{
+  color: var(--clr1);
+}
+
+.myworks .eachCatagory .imgCont{
+  width: 300px;
+  border: 5px solid var(--bgclrl);
+  border-radius: 5px;
+  box-shadow: 0 0 10px var(--bgclrl);
+  position: relative;
+  overflow: hidden;
+  animation: scalee 0.3s linear;
+  cursor: pointer;
+}
+
+@keyframes scalee {
+  0%{transform: scale(0);}
+  100%{transform: scale(1);}
+}
+
+.myworks .eachCatagory .imgCont img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.myworks .eachCatagory .imgCont .imgoverlay{
+  position: absolute;
+  top: -10rem;
+  left: -10rem;
+  width: 200%;
+  height: 1%;
+  background-color: var(--clr1);
+  opacity: 0.9;
+  transform: rotate(-45deg);
+
+  transition: all 0.3s ease-in;
+}
+
+.myworks .eachCatagory .imgCont .imgdesc{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  opacity: 0;
+
+  transition: all 0.2s linear 0.25s;
+
+}
+
+.myworks .eachCatagory .imgCont:hover .imgoverlay{
+  height: 250%;
+}
+
+.myworks .eachCatagory .imgCont:hover .imgdesc{
+  opacity: 1;
+}
 
