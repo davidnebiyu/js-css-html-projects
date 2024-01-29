@@ -56,7 +56,7 @@ class Ui{
 
 
         // display sections
-        dispSection('portfolio');
+        dispSection('home');
 
         document.querySelectorAll('nav a').forEach(element => {
             element.addEventListener('click', ()=>{
@@ -261,6 +261,13 @@ class Ui{
             modal.style.setProperty('display', 'none');
             modalCont.innerHTML = '';
         })
+
+        // form labels....
+        document.querySelectorAll('.contact form .eachInput input').forEach( (input)=>{
+            input.addEventListener('input', ()=>{
+                input.value.trim() !== '' ? input.classList.add('active') : input.classList.remove('active') 
+            })
+        } )
 
     }
 
