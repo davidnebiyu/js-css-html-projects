@@ -1,0 +1,369 @@
+/* lato-regular - latin */
+@font-face {
+    font-display: swap; 
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/lato-v24-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* lato-italic - latin */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Lato';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../assets/fonts/lato-v24-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* lato-700 - latin */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../assets/fonts/lato-v24-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* lato-700italic - latin */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Lato';
+    font-style: italic;
+    font-weight: 700;
+    src: url('../assets/fonts/lato-v24-latin-700italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* lato-900 - latin */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 900;
+    src: url('../assets/fonts/lato-v24-latin-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* lato-900italic - latin */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Lato';
+    font-style: italic;
+    font-weight: 900;
+    src: url('../assets/fonts/') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html{
+    scroll-behavior: smooth;
+  }
+
+  :root{
+    --brandclr:#e67e22;
+  }
+
+  body{
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    background-color: var(--bgclrd);
+    color: var(--textclr);
+    overflow-x: hidden;
+    height: 400vh;
+  }
+
+
+  ul{
+    list-style: none;
+  }
+
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+
+  button, input, textarea{
+    outline: none;
+    background-color: none;
+    border: none;
+
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+
+    color: #fff;
+
+  }
+
+  /*  */
+
+  
+
+  body[data-theme="light"] .revclr, button.revclr{
+    color:#e9e9e9;
+    background-color: var(--clr1);
+  }
+
+  .brandclr{
+    color: var(--brandclr);
+  }
+
+  .head1{
+    font-size: 2.5rem;
+    font-weight: 900;
+  }
+
+  .head1-l{
+    font-size: 2.5rem;
+  }
+  
+  .head2{
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+ 
+  .head3{
+    font-weight: 700;
+  }
+
+  .d-f{
+    display: flex;
+    gap: 1rem;
+  }
+
+  .f-d-c{
+    flex-direction: column;
+  }
+
+  .j-sb{
+    justify-content: space-between;
+  }
+
+  .a-c{
+    align-items: center;
+  }
+
+  .t-a-c{
+    text-align: center;
+  }
+
+  .j-c{
+    justify-content: center;
+  }
+
+  .fwr-wr{
+    flex-wrap: wrap;
+  }
+
+  .t-t-u{
+    text-transform: uppercase;
+  }
+
+  .t-t-c{
+    text-transform: capitalize;
+  }
+
+  .c-l{
+    color: #fff;
+  }
+
+  .c-d{
+    color: #555;
+  }
+  /*  */
+  #modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: #00000099;
+    transform: scale(0);
+    display: none;
+    animation: scalee 0.3s ease-in;
+  }
+
+  #closeModal{
+    position: absolute;
+    left: calc(100% - 2rem);
+    top: 5%;
+    border: 1px solid var(--borclrl);
+    cursor: pointer;
+    padding: 0.5rem;
+    background-color: var(--bgclrl);
+    z-index: 11;
+    font-size: 1rem;
+  }
+
+  #prevModal{
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid var(--borclrl);
+    cursor: pointer;
+    padding: 0.5rem;
+    background-color: var(--bgclrl);
+    z-index: 11;
+    font-size: 1rem;
+  }
+
+
+  #nextModal{
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid var(--borclrl);
+    cursor: pointer;
+    padding: 0.5rem;
+    background-color: var(--bgclrl);
+    z-index: 11;
+    font-size: 1rem;
+  }
+
+  #modalCont{
+    width: calc(100%);
+    height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /*  */
+
+  .wrapper{
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .btn-style-1{
+    background-color: var(--brandclr);
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    display: block;
+    border: 1px solid var(--brandclr);
+    border-radius: 5px;
+    transition: all 0.3s;
+  }
+
+  .btn-style-2{
+    color: var(--brandclr);
+    padding: 0.5rem 1.5rem;
+    display: block;
+    border: 1px solid var(--brandclr);
+    border-radius: 5px;
+    transition: all 0.3s;
+  }
+
+
+  .btn-style-1:hover{
+    opacity: 0.9;
+  }
+
+  .btn-style-2:hover{
+    background-color: var(--brandclr);
+    color: #fff;
+  }
+  /*  */
+
+  section{  }
+
+  .header{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+
+    background-image: linear-gradient(#000000b3, #000000b3),url('../images/hero.jpg');
+    background-position: center;
+    background-size: cover;
+  }
+
+  .header .hero{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 1rem;
+  }
+
+  .header nav {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    z-index: 10;
+  }
+
+  .header nav .wrapper{
+    /* height: 100%; */
+  }
+
+  .header nav .logo{
+    height: 100px;
+  }
+
+  .header nav .logo img{
+    height: 100%;
+    width: auto;
+  }
+
+  .header nav a{
+    display: block;
+    position: relative;
+  }
+
+  .header nav a::after{
+    position: absolute;
+    content: '';
+    bottom: -0.5rem;
+    width: 0%;
+    height: 0.1rem;
+    background-color: var(--brandclr);
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s;
+  }
+
+  .header nav a:hover::after{
+    width: 100%;
+  }
+
+
+  #openNav, #closeNav{
+    display: none;
+    cursor: pointer;
+    font-size: 2rem;
+    margin-top: 5%;
+    transition: all 0.3s;
+  }
+
+  img.black{
+    display: none;
+  }
+
+  .header nav.min{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    color: #555 !important;
+    border-bottom: 1px solid #555;
+  }
+
+  .header nav.min .logo{
+    height: 50px;
+  }
+
+  .header nav.min img.black{
+    display: flex;
+  }
+
+  .header nav.min img.white{
+    display: none;
+  }
+
+  .header nav.min #openNav, .header nav.min #closeNav{
+    margin-top: 2.5%;
+  }
