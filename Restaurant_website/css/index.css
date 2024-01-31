@@ -61,6 +61,7 @@
 
   :root{
     --brandclr:#e67e22;
+    --textclr:#555;
   }
 
   body{
@@ -84,7 +85,7 @@
     color: inherit;
   }
 
-  button, input, textarea{
+  button, input, textarea, select, option{
     outline: none;
     background-color: none;
     border: none;
@@ -93,7 +94,8 @@
     font-style: normal;
     font-weight: 400;
 
-    color: #fff;
+    color: inherit;
+    font-size: inherit;
 
   }
 
@@ -122,6 +124,10 @@
   .head2{
     font-size: 1.5rem;
     font-weight: 700;
+  }
+
+  .head2-l{
+    font-size: 1.5rem;
   }
  
   .head3{
@@ -173,66 +179,7 @@
     color: #555;
   }
   /*  */
-  #modal{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    background-color: #00000099;
-    transform: scale(0);
-    display: none;
-    animation: scalee 0.3s ease-in;
-  }
-
-  #closeModal{
-    position: absolute;
-    left: calc(100% - 2rem);
-    top: 5%;
-    border: 1px solid var(--borclrl);
-    cursor: pointer;
-    padding: 0.5rem;
-    background-color: var(--bgclrl);
-    z-index: 11;
-    font-size: 1rem;
-  }
-
-  #prevModal{
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    border: 1px solid var(--borclrl);
-    cursor: pointer;
-    padding: 0.5rem;
-    background-color: var(--bgclrl);
-    z-index: 11;
-    font-size: 1rem;
-  }
-
-
-  #nextModal{
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    border: 1px solid var(--borclrl);
-    cursor: pointer;
-    padding: 0.5rem;
-    background-color: var(--bgclrl);
-    z-index: 11;
-    font-size: 1rem;
-  }
-
-  #modalCont{
-    width: calc(100%);
-    height: 90%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+ 
 
   /*  */
 
@@ -271,8 +218,6 @@
   }
   /*  */
 
-  section{  }
-
   .header{
     width: 100%;
     min-height: 100vh;
@@ -281,6 +226,7 @@
     background-image: linear-gradient(#000000b3, #000000b3),url('../images/hero.jpg');
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
   }
 
   .header .hero{
@@ -349,7 +295,7 @@
     left: 0;
     background-color: #fff;
     color: #555 !important;
-    border-bottom: 1px solid #555;
+    box-shadow: 0 0 5px #ddd;
   }
 
   .header nav.min .logo{
@@ -367,3 +313,232 @@
   .header nav.min #openNav, .header nav.min #closeNav{
     margin-top: 2.5%;
   }
+
+  /*  */
+
+  .grid4{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+  }
+
+  .section.pad{
+    padding: 4.5rem 1rem;
+    font-size: 1.1rem;
+  }
+
+  .section p{
+    line-height: 1.4;
+  }
+
+  .sectionTitle{
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+    width: fit-content;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .sectionTitle::after{
+    position: absolute;
+    content: '';
+    bottom: -1rem;
+    width: 30%;
+    height: 0.1rem;
+    background-color: var(--brandclr);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .eachFeature{
+    flex: 1;
+  }
+
+/*  */
+
+.showcase .imgCont{
+  background-color: #000;
+  overflow: hidden;
+}
+
+.showcase .imgCont img{
+  width: 100%;
+  height: auto;
+  opacity: 0.7;
+  transform: scale(1.2);
+  transition: all 0.5s;
+}
+
+.showcase .imgCont img:hover{
+  opacity: 1;
+  transform: scale(1);
+}
+
+/*  */
+
+#works{
+  background-color: #f2f2f2;
+}
+
+.works .steps {
+  padding: 0;
+}
+
+.works .phone{
+  height: 500px;
+  width: 80%;
+  justify-content: end;
+}
+
+.works .phone img{
+  height: 100%;
+  width: auto;
+}
+
+.works .eachStep > ul > li > p:first-child{
+  border: 2px solid var(--brandclr);
+  border-radius: 50%;
+  padding: 1rem 1.5rem;
+}
+
+.works .eachStep .links img{
+  height: 3rem;
+}
+
+
+/*  */
+
+
+.cities .eachCity a{
+  text-decoration: underline;
+}
+
+.cities .cityImage img{
+  width: 100%;
+}
+
+.cities .cityDesc > ul{
+  padding: 0 0.5rem;
+}
+
+.cities .cityDesc > ul > li{
+  display: flex;
+  gap: 1rem;
+}
+
+/*  */
+
+#testimony{
+  background-image: linear-gradient(#000000cc, #000000cc),url('../images/back-customers.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+
+  color: #fff;
+}
+
+.testimony .eachTestimony{
+  font-style: italic;
+}
+
+.testimony .testimImg{
+  width: 3rem;
+  height: 3rem;
+}
+
+.testimony .testimImg img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+/*  */
+
+#signup{
+  background-color: #f2f2f2;
+}
+
+.signup .eachPlan{
+  background-color: #fff;
+}
+
+.signup .eachPlan > ul > li{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.signup .eachPlan > ul > li:not(:last-child){
+  border-bottom: 1px solid #ddd;
+}
+
+.signup .eachPlan > ul > li:nth-child(2) p{
+  position: relative;
+  padding-left: 1rem;
+}
+
+.signup .eachPlan > ul > li p.yes::before{
+  position: absolute;
+  content: '\f00c';
+  font-family: 'font awesome 5 free';
+  font-weight: 900;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  color:var(--brandclr)
+}
+
+.signup .eachPlan > ul > li p.no::before{
+  position: absolute;
+  content: '\f00d';
+  font-family: 'font awesome 5 free';
+  font-weight: 900;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  color:var(--brandclr)
+}
+
+form{
+  width: 80%;
+  margin: 0 auto;
+}
+
+form .col1{
+  width: 30%;
+}
+
+form .col2{
+  width: 70%;
+}
+
+form input, form select, form textarea{
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+form textarea{
+  resize: vertical;
+}
+
+form input[type="submit"]{
+  width: fit-content;
+  align-self: self-end;
+}
+
+form input[type="checkbox"]{
+  width: fit-content;
+}
+
+#footer{
+  background-color: #555;
+  color: #fff;
+  padding: 2rem 1rem;
+}

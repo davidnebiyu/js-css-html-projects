@@ -7,7 +7,7 @@ const nav = header.querySelector('nav');
 
     //dynamic adding the gap property
     Array.from( document.querySelectorAll('*') ).forEach( (element)=>{
-        if(element.classList.contains('d-f')){
+        if(element.classList.contains('d-f') || element.classList.contains('grid4')){
             if(element.className.indexOf('g-') > -1){
                 let gap;
                 element.className.indexOf(" ", element.className.indexOf('g-')) > -1 ? gap = element.className.substring(element.className.indexOf("g-"), element.className.indexOf(" ", element.className.indexOf("g-"))) : gap = element.className.substring(element.className.indexOf("g-"));
@@ -33,15 +33,12 @@ const nav = header.querySelector('nav');
         document.getElementById('closeNav').style.display = 'flex';
         nav.querySelector('ul').style.marginTop = '0';
         this.style.display = 'none';
-        // nav.querySelector('ul').style.maxHeight = 'fit-content';
     }
 
     document.getElementById('closeNav').onclick = function(){
         document.getElementById('openNav').style.display = 'flex';
         nav.querySelector('ul').style.marginTop = '-100%';
         this.style.display = 'none';
-        // nav.querySelector('ul').style.maxHeigh = '0';
-
     }
 
 })();
