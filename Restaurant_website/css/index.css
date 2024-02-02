@@ -238,12 +238,9 @@
 
   .header nav {
     width: 100%;
+    position: relative;
     padding: 0.5rem 1rem;
     z-index: 10;
-  }
-
-  .header nav .wrapper{
-    /* height: 100%; */
   }
 
   .header nav .logo{
@@ -542,3 +539,77 @@ form input[type="checkbox"]{
   color: #fff;
   padding: 2rem 1rem;
 }
+
+
+
+/*  */
+
+.fade{
+  opacity: 0;
+  animation-fill-mode: forwards;
+  /* animation-name: fade; */
+}
+
+.fadetop{
+  opacity: 0;
+  transform:translateY(-3rem);
+  animation-fill-mode: forwards;
+}
+
+.fadebottom{
+  opacity: 0;
+  transform:translateY(3rem);
+  animation-fill-mode: forwards;
+}
+
+.fadeleft{
+  opacity: 0;
+  transform:translateX(-3rem);
+  animation-fill-mode: forwards;
+}
+
+.faderight{
+  opacity: 0;
+  transform:translateX(3rem);
+  animation-fill-mode: forwards;
+}
+
+.bounce{
+  animation-fill-mode: forwards;
+}
+
+.eachCity{
+}
+@keyframes fade {
+  0%{ opacity:0; }
+  100%{ opacity:1; }
+}
+
+@keyframes fadetop {
+  0%{ opacity:0; transform:translateY(-3rem);}
+  100%{ opacity:1; transform:translateY(0); }
+}
+
+@keyframes fadebottom {
+  0%{ opacity:0; transform:translateY(3rem);}
+  100%{ opacity:1; transform:translateY(0); }
+}
+
+@keyframes fadeleft {
+  10%{ opacity:0; transform:translateX(-3rem);}
+  100%{ opacity:1; transform:translateY(0); }
+}
+
+@keyframes faderight {
+  10%{ opacity:0; transform:translateX(3rem);}
+  100%{ opacity:1; transform:translateY(0); }
+}
+
+@keyframes bounce {
+  0%{  transform:scale(1);}
+  50%{  transform:scale(1.3);}
+  100%{  transform:scale(1);}
+}
+
+
+
